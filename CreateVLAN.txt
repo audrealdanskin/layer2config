@@ -1,0 +1,9 @@
+sudo apt-get update
+
+sudo apt-get install vlan  
+lsmod | grep 8021q
+sudo modprobe 8021q
+sudo vconfig add enp1s0f0 1000
+ifconfig enp1s0f0.1000
+ifconfig enp1s0f0.1000 192.168.1.10 netmask 255.255.255.0 broadcast 192.168.1.255 up
+cat /proc/net/vlan/enp1s0f0.1000
